@@ -1,0 +1,293 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:8px 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 100px auto 30px;
+  max-width: 90%;
+  padding: 30px 30px 40px 30px;
+  border: 2px solid black;
+}
+
+.main-div-book {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 100px auto 30px;
+  max-width: 90%;
+  padding: 30px 30px 40px 30px;
+  border: 2px solid #eee;
+
+}
+.main-div-listproperty {
+  background: #ffffff none repeat scroll 0 0;
+  margin: 20px auto 30px;
+  border-radius: 2px;
+  max-width: 90%;
+  padding: 30px 30px 40px 30px;
+  border: 2px solid black;
+}
+
+.main-div-userdisplay {
+  margin-top:100px;
+  margin-bottom:40px;
+  margin-left:100px;
+  border-radius: 2px;
+  max-width: 60%;
+  padding: 30px 30px 40px 30px;
+}
+
+
+
+.main-div-login {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 100px auto 30px;
+  max-width: 40%;
+  padding: 30px 30px 40px 30px;
+  border: 2px solid black;
+}
+
+
+
+.main-div-search {
+  border-radius: 2px;
+  margin: 100px auto 30px;
+  max-width: 130%;
+  padding: 130px 30px 40px 30px;
+  font-size: 44px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  letter-spacing: .1px;
+  text-align: left;
+  line-height: normal;
+  box-sizing: border-box;
+  font-family: Lato,Arial,Helvetica Neue,sans-serif;
+}
+.main-div-search1 {
+  border-radius: 2px;
+  margin-top:20px;
+  border-bottom: 1px solid gray;
+  padding: 30px 130px 40px 30px;
+  font-family: Lato,Arial,Helvetica Neue,sans-serif;
+  text-align : left;
+}
+.main-div-result {
+  border-radius: 2px;
+  margin: 100px auto 30px;
+  max-width: 130%;
+  font-size: 44px;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  letter-spacing: .1px;
+  text-align: left;
+  line-height: normal;
+  box-sizing: border-box;
+  font-family: Lato,Arial,Helvetica Neue,sans-serif;
+}
+.main-div-signups {
+  margin-top:250px;
+  margin-bottom:40px;
+  margin-left:100px;
+  border-radius: 2px;
+  max-width: 60%;
+  padding: 30px 30px 40px 30px;
+}
+.table-row {
+  width:100%;
+}
+
+.table-col {
+  overflow: hidden;/* Makes this div contain its floats */
+}
+.table-col .col1,
+.table-col .col2,
+.table-col .col3,
+.table-col .col4,
+.table-col5 {
+  width: 20%;
+}
+
+.table-col .col1 {
+  float: left;
+}
+
+.table-col .col2 {
+  float: left;
+}
+
+.table-col .col3 {
+  float: left;
+}
+.table-col .col4 {
+  float: left;
+}
+.table-col .col5 {
+  float: left;
+}
+
+.table-col label {
+  display: block;
+}
+
+
+.content {
+  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./earn-header.jpg');
+  background-size: cover;
+  height:600px;
+  display: block;
+}
+
+
+.content_btn1 {
+  position: absolute;
+  top:1075px;
+  left:750px;
+  border-radius: 25px;
+  background-color:rgba(0,0,0,.65);
+  color: #fff;
+}
+
+
+.content_btn_home {
+  position: absolute;
+  top:1700px;
+  left:750px;
+  border-radius: 25px;
+  background-color:rgba(0,0,0,.65);
+  color: #fff;
+}
+
+#hh{
+position: absolute;
+top:950px;
+left:580px;
+font-size: 24px;
+text-align: center;
+vertical-align: middle;
+color: #fff;
+}
+
+#hhome{
+  position: absolute;
+  top:1500px;
+  left:580px;
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  }
+
+.login-form .form-group {
+  margin-bottom:10px;
+
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.forgot {
+  text-align: left; margin-bottom:30px;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.footer {
+  position: bottom;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+}
+
+.HeadLine__text {
+  display: block;
+}
+
+.site-header-logo__img {
+    max-height: 40px;
+    max-width: 200px;
+}
+
+.button-search
+{
+  min-height: 72px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-weight: 500;
+  border-radius:50px;
+}
+
+.button-submit
+{
+  min-height: 58px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 500;
+  border-radius:30px;
+}
+
+
+
+
+
