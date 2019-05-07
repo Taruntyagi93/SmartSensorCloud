@@ -48,6 +48,7 @@ class DashboardCloud extends Component{
         sutterFlag: false,
         ardenFlag: false,
         costcoFlag: false,
+        modalFlag: false,
       }
     };
   
@@ -217,6 +218,32 @@ class DashboardCloud extends Component{
       sutterFlag: true,
       clusterId: 16,
   });
+
+  onViewModel = (sensorId) => {
+
+    axios.get("http://localhost:3001/sensor/viewSensorData?sensorId=" + sensorId
+     ).then(response => {
+      console.log(response.data);
+      if (response.status === 200) {
+        this.setState({
+
+          modalFlag: true,
+          
+          sensorsdata: response.data.sensors
+          //properties: response.data
+        });
+      } else {
+        this.setState({
+          authFlag: false
+        });
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+} 
+
+
+
 
     render(){
 
@@ -731,38 +758,38 @@ class DashboardCloud extends Component{
 
   
         if (this.state.authFlag){
-            console.log("inside");
-                tabledata2 = (
-                  <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
-                  <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
-                  <tr className="dashboardsensor-tablemain-heading">
-                      <th>Sensor ID</th>
-                      <th>Cluster ID</th>
-                      <th>Type</th>
-                      <th>Latitude</th>
-                      <th>Longitude</th>
-                      <th>Status</th>
-                      <th>Historical Data</th>
-                  </tr>
-                  {this.state.sensors.map(sensor => (
-                  <tr className="dashboardsensor-tablemain-data">
-                    <td>{sensor.sensorId}</td>
-                    <td>{sensor.clusterId}</td>
-                    <td>{sensor.type}</td>
-                    <td>{sensor.latitude}</td>
-                    <td>{sensor.longitude}</td>
-                    <td>{sensor.status}</td>
-                    <td>
-                         <button onClick= {this.tempdata1} class="view-button" data-toggle="modal" data-target="#myModal"  className= "view-button">view</button>
-                     </td>
-                  </tr>
-                  ))}
-                </table> 
-                </div>
-                  );
-                  this.setState.marker2ActiveFlag = false;
-                  
-          }
+          console.log("inside");
+              tabledata2 = (
+                <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
+                <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
+                <tr className="dashboardsensor-tablemain-heading">
+                    <th>Sensor ID</th>
+                    <th>Cluster ID</th>
+                    <th>Type</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Status</th>
+                    <th>Historical Data</th>
+                </tr>
+                {this.state.sensors.map(sensor => (
+                <tr className="dashboardsensor-tablemain-data">
+                  <td>{sensor.sensorId}</td>
+                  <td>{sensor.clusterId}</td>
+                  <td>{sensor.type}</td>
+                  <td>{sensor.latitude}</td>
+                  <td>{sensor.longitude}</td>
+                  <td>{sensor.status}</td>
+                  <td>
+                       <button onClick= {(sensorId) => this.onViewModel(sensor.sensorId)}  data-toggle="modal" data-target="#myModal"  className= "view-button1">view</button>
+                   </td>
+                </tr>
+                ))}
+              </table> 
+              </div>
+                );
+                this.setState.marker2ActiveFlag = false;
+                
+        }
 
         
         if(this.state.backButtonFlag){
@@ -776,80 +803,38 @@ class DashboardCloud extends Component{
         }
        
 
-        if(this.state.tempdataflag){
-          modaldatatemp=(
-              <div id="myModal" class="modal fade modal-whole" role="dialog">
-              <div class="modal-dialog">
+      if(this.state.modalFlag){
+        modaldatatemp=(
+            <div id="myModal" class="modal fade modal-whole" role="dialog">
+            <div class="modal-dialog">
 
-                  <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title Modal-Header">Sensor Data</h4>
-                  </div>
-                  <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
-                      <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
-                      <tr className="dashboardsensor-tablemain-heading">
-                      <th>Date</th>
-                      <th>Time (24 hrs)</th>
-                      <th>Data (in Celcius)</th>
-                      <th>Alert</th>
-                      
-                      </tr>
-                      <tr className="dashboardsensor-tablemain-data">
-                      
-                      <td>04-15-2019</td>
-                      <td>12:00</td>
-                      <td>56(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-                      <tr className="dashboardsensor-tablemain-data">
-                      
-                      <td>04-15-2019</td>
-                      <td>13:00</td>
-                      <td>59(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-                      <tr className="dashboardsensor-tablemain-data">
-                      <td>04-15-2019</td>
-                      <td>14:00</td>
-                      <td>60(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-
-                      <tr className="dashboardsensor-tablemain-data">
-                      <td>04-15-2019</td>
-                      <td>15:00</td>
-                      <td>57(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-
-                      <tr className="dashboardsensor-tablemain-data">
-                      <td>04-15-2019</td>
-                      <td>16:00</td>
-                      <td>59(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-
-                      <tr className="dashboardsensor-tablemain-data">
-                      <td>04-15-2019</td>
-                      <td>17:00</td>
-                      <td>57(F)</td>
-                      <td className="dashboardsensor-tablemain-active">No</td>
-                      </tr>
-
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title Modal-Header">Sensor Data</h4>
+                </div>
+                <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
+                    <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
+                    <tr className="dashboardsensor-tablemain-heading">
+                    <th>Sensor ID</th>
+                    <th>Data</th>
+                    </tr>
+                    {this.state.sensorsdata.map(sensor => (
+                    <tr className="dashboardsensor-tablemain-data">
+                      <td>{sensor.sensorId}</td>
+                      <td>{sensor.data}</td>
+                    </tr>
+                    ))}
                   </table> 
-              </div>
-              <a className="modal-viewmore">View More Data</a>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-              </div>
+                  </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
 
-              </div>
-              </div>
-              
-
-          )
-      }
+            </div>
+            </div>
+        )
+    }
 
 
         if(this.state.mainMapFlag){
@@ -1066,10 +1051,8 @@ class DashboardCloud extends Component{
             <div className="super-dashboardcloud col-md-12">
             
                 <NavbarSub/>
-
-                {modaldata1}
                 {modaldatatemp}
-                {modaldatatemp2}
+               
 
                     <div className="dashboardmain-heading">
                         CLOUD DASHBOARD
