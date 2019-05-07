@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import Login from './Login/Login';
 import OwnerLogin from './Login/OwnerLogin';
-import Home from './Home/Home';
+import Home from './LandingPage/LandingPage';
 import UserDisplay from './User/UserDisplay';
 import Account from './User/Account';
 import Search from './Search/Search';
@@ -20,6 +20,18 @@ import SearchBar from './LandingPage/SearchBar';
 import Dashboard from './Home/Dashboard';
 import Help from './Help/Help';
 import NavbarResult from './LandingPage/NavbarResult';
+import SensorProfile from './LandingPage/SensorProfile';
+import SensorData from './LandingPage/SensorData';
+import dashboardcloudiotsensorstatus from './Home/DashboardSensorStatus';
+import dashboardregion from './Home/DashboardRegion';
+import dashboardregioniotsensorstatus from './Home/DashboardMain';
+
+import SmartEmergencyNode from './SmartEmergencyNodeComponent/SmartEmergencyNode.js';
+import SmartEmergencySensor from './SmartEmergencySensorComponent/SmartEmergencySensorComponent.js';
+import ClusterNodeManager from './SmartEmergencyNodeComponent/Cluster';
+
+
+
 
 //Create a Main Component
 class Main extends Component {
@@ -49,6 +61,16 @@ class Main extends Component {
                 <Route exact path="/help" component={Help}/>
                 <Route exact path="/searchbar" component={SearchBar}/>
                 <Route path="/footbar" component={Footbar}/> 
+                <Route path="/SensorProfile" component={SensorProfile}/> 
+                <Route path="/SensorData" component={SensorData}/> 
+                <Route path="/dashboardcloudiotsensorstatus" component={dashboardcloudiotsensorstatus}/> 
+                <Route path="/dashboardregion" component={dashboardregion}/> 
+                <Route path="/dashboardregioniotsensorstatus" component={dashboardregioniotsensorstatus}/>  
+
+            
+                <Route path ="/node" exact component = {SmartEmergencyNode} />
+                <Route path ="/sensor" exact component = {SmartEmergencySensor} />
+                <Route path ="/cluster" exact component = {ClusterNodeManager} />
             
             </div>
            

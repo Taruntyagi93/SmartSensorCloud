@@ -14,15 +14,15 @@ class Footbar extends Component {
   <h3 class="footertitle">Smart alert cloud options</h3>
  
   <div class="row">
-  <a id="footer1" href="/login"><div class="footerin col-sm-2" style={{textAlign:'center',backgroundColor:"#9da9b3",color:"#323f4d",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}} >Modify Data</div></a>
-  <a id="footer2" href="https://www.vrbo.com/"> <div class="col-sm-2"  style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Data Manager</div></a>
-  <a id="footer3" href="https://www.vacationrentals.com/"> <div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Sensor Manager</div></a>
-  <a id="footer4" href="https://www.homelidays.com/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Cluster Manager</div></a>
-  <a id="footer5" href="https://www.abritel.fr/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Smart Node Manager</div></a>
-  <a id="footer6" href="https://www.fewo-direkt.de/"><div class="col-sm-2" style={{textAlign:'center',backgroundColor:"#9da9b3",color:"#323f4d",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}} >User</div></a>
-  <a id="footer7" href="http://www.toprural.com/"><div class="col-sm-2"  style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Admin</div></a>
-  <a id="footer8" href="https://www.bookabach.co.nz/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Contact Us</div></a>
-  <a id="footer9" href="https://www.stayz.com.au/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Help</div></a>
+  <a id="footer1" href="/SensorData"><div class="footerin col-sm-2" style={{textAlign:'center',backgroundColor:"#9da9b3",color:"#323f4d",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}} >Sensor Data</div></a>
+  <a id="footer3" href="/SensorProfile"> <div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Sensor Manager</div></a>
+  <a id="footer2" href="/dashboard"> <div class="col-sm-2"  style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Dashboard</div></a>
+  <a id="footer4" href="/cluster"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Cluster Manager</div></a>
+  <a id="footer5" href="/node"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Smart Node Manager</div></a>
+  <a id="footer6" href="/dashboard"><div class="col-sm-2" style={{textAlign:'center',backgroundColor:"#9da9b3",color:"#323f4d",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}} >User</div></a>
+  <a id="footer7" href="/"><div class="col-sm-2"  style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Admin</div></a>
+  <a id="footer8" href="/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Contact Us</div></a>
+  <a id="footer9" href="/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Help</div></a>
   <a id="footer10" href="/"><div class="col-sm-2" style={{textAlign:'center',color:"#323f4d",backgroundColor:"#9da9b3",fontSize:"16px",padding:"15px",borderRadius:"8px",margin:"15px",height:"60px",lineHeight:"30px"}}>Home</div></a>
   </div>
   <br></br><br></br>

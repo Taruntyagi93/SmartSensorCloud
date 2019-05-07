@@ -8,11 +8,11 @@ import {Link} from 'react-router-dom';
 import { SplitButton,DropdownButton, MenuItem, Button, Image } from 'react-bootstrap';
 import Navbar from './Navbar';
 import Footbar from './Footbar';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBarSensorData';
 
 
 //create the Navbar Component
-class LandingPage extends Component {
+class SensorData extends Component {
     constructor(props){
     super(props);
         //maintain the state required for this component
@@ -40,13 +40,13 @@ class LandingPage extends Component {
 
         let redirectVar = null;
     
-        if(this.state.searchFlag){
-                redirectVar = <Redirect to= "/search"/>
-            } 
+        // if(this.state.searchFlag){
+        //         redirectVar = <Redirect to= "/search"/>
+        //     } 
         
-            if(cookie.load('cookie')){
-                redirectVar = <Redirect to= "/home"/>
-            }    
+        //     if(cookie.load('cookie')){
+        //         redirectVar = <Redirect to= "/home"/>
+        //     }    
         
        
         let nav = <Navbar navrender={this.props.navrender}/>
@@ -66,10 +66,10 @@ class LandingPage extends Component {
                 {redirectVar} 
                 {nav}
                 {searchbar}
-                
+                {foot}   
             </div>
             
         )
     }
 }
-export default LandingPage;
+export default SensorData;

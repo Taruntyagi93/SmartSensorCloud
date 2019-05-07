@@ -1,0 +1,35 @@
+.super-dashboardregionmain{
+    background: url('../Images/watch-tower2.jpg')
+}
+
+.dashboardregion-dashboardbutton-region, .dashboardregion-dashboardbutton-region:hover{
+    cursor: default;
+    color: White;
+    background: rgba(0, 0, 255, 0.651);  
+}
+.dashboardregion-areadropdown{
+    padding: 4px;
+   font-family: sans-serif;
+   font-size: 14px;
+   background: blue;
+   color: #fff;
+   width: 100px;
+}
+.deshboardregion-defaultarea-text{
+    padding: 4px;
+    font-family: sans-serif;
+   font-size: 16px;
+    color: #fff;
+    font-weight: 900;
+    
+}
+.dashboardregion-areadropdownmenu {
+    margin-left: 50%;
+   padding: 4px;
+    font-family: sans-serif;
+   font-size: 14px;
+}
+.deshboardregion-defaultarea-textanddropdown{
+    
+    margin-top: 50px;
+}

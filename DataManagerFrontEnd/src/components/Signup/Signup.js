@@ -5,153 +5,181 @@ import cookie from 'react-cookies';
 import {Redirect} from 'react-router';
 import {Link} from 'react-router-dom';
 import LoginNavbar from '../LandingPage/LoginNavbar';
+import NavbarMain from '../Login/NavbarMain';
+import './UserRegistration.css';
 
 
 //Define a Login Component
 class Signup extends Component{
     //call the constructor method
-    constructor(props){
-        //Call the constrictor of Super class i.e The Component
+    constructor(props) {
         super(props);
-        //maintain the state required for this component
+    
         this.state = {
-            username : "",
-            password : "",
-            type : "",
-            firstname : "",
-            message : "",
-            authFlag : false
+          firstname: "",
+          lastname: "",
+          email: "",
+          password: "",
+          role: "",
+          authFlag: false,
+          loginflag :false,
+          username: "",
+        };
+      }
 
-        }
-        //Bind the handlers to this class
-        this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
-        this.passwordChangeHandler = this.passwordChangeHandler.bind(this);
-        this.typeChangeHandler = this.typeChangeHandler.bind(this);
-        this.firstnameChangeHandler = this.firstnameChangeHandler.bind(this);
-        this.submitSignup = this.submitSignup.bind(this);
-    }
-    //Call the Will Mount to set the auth Flag to false
-    componentWillMount(){
+
+
+    handleFirstName = e => {
         this.setState({
-            authFlag : false,
-            message : ""
-        })
-    }
-    //username change handler to update state variable with the text entered by the user
-    usernameChangeHandler = (e) => {
+          firstname: e.target.value
+        });
+      };
+    
+      handleLastName = e => {
         this.setState({
-            username : e.target.value
-        })
-    }
-    //password change handler to update state variable with the text entered by the user
-    passwordChangeHandler = (e) => {
+          lastname: e.target.value
+        });
+      };
+    
+      handleEmail = e => {
         this.setState({
-            password : e.target.value
-        })
-    }
-    //password change handler to update state variable with the text entered by the user
-    typeChangeHandler = (e) => {
+          email: e.target.value
+        });
+      };
+    
+      handlePassword = e => {
         this.setState({
-            type : e.target.value
-        })
-    }
-    //password change handler to update state variable with the text entered by the user
-    firstnameChangeHandler = (e) => {
+          password: e.target.value
+        });
+      };
+    
+      changeHandlerRadio = e => {
         this.setState({
-            firstname : e.target.value
-        })
-    }
-    //submit Login handler to send a request to the node backend
-    submitSignup = (e) => {
-        var headers = new Headers();
-        //prevent page from refresh
+          role: e.target.value
+        });
+      };
+
+    handleSignmeup = async e => {
         e.preventDefault();
-        const data = {
-            username : this.state.username,
-            password : this.state.password,
-            type : "traveller",
-            firstname : this.state.firstname
-        }
-        //set the with credentials to true
-        axios.defaults.withCredentials = true;
-        //make a post request with the user data
-        axios.post('http://localhost:3001/signup',data)
-            .then(response => {
-                console.log("Status Code : ",response.data);
-                if(response.data === 200){
-                    this.setState({
-                        authFlag : true,
-                        message : "Successful Signup"
-                    })
-                }else{
-                    this.setState({
-                        authFlag : false,
-                        message : "User Already Exist "
-                    })
-                }
+        var data = {
+          firstName: this.state.firstname,
+          lastName: this.state.lastname,
+          email: this.state.email,
+          password: this.state.password,
+          role: this.state.role
+        };
+       
+        axios.post("http://localhost:3001/user/register", data).then(response => {
+          
+          if ((response.status = 200)) {
+            this.setState({
+              authFlag: true
             });
-    }
+          } else {
+            this.setState({
+              authFlag: false
+            });
+          }
+        });
+      };
+
 
     render(){
-        let nav = <LoginNavbar navdata={this.props.navdata}/>
-        //redirect based on successful login
-        let redirectVar = null;
-       /* if(cookie.load('cookie')){
-                redirectVar = <Redirect to= "/userdisplay"/>
-            }*/
 
-            if(cookie.load('cookie')){
-                redirectVar = <Redirect 
-                to= {{
-                        pathname : '/home',
-                        state : {
-                            username : this.state.username,
-                            loginFlag : this.state.loginFlag
-                        }
-            
-                    
-                }} />
+        let redirectvar=null;
+
+        if(this.state.authFlag){
+            console.log('inside cookie')
+            redirectvar=<Redirect 
+            to= {{
+                pathname : '/login',
+                }
             }
+        
+        />
+        }
 
         return(
-            <div style={{backgroundColor:"#eee"}}>
-            {redirectVar}
-            {nav} 
             
-            <div class="container"> 
-                          
-                <div class="login-form">
-                
-                    <div class="main-div-signups">
+                <div className = "main-class col-md-12">
+                    <NavbarMain/>
+                    {redirectvar}
                     
-                        <div class="panel">
-                        <h2>Traveller Sign up for HomeAway </h2>
-                        <p>Please enter your details</p>
-                            <p>{this.state.message}</p>
-                        </div>
-                        
-                        <div class="form-group">
-                                <input style={{fontSize:"18px"}} onChange = {this.usernameChangeHandler} type="email" class="form-control" name="username" placeholder="Email"/>
-                        </div>
-                        <div class="form-group">
-                                <input style={{fontSize:"18px"}} onChange = {this.passwordChangeHandler} type="password" class="form-control" name="password" placeholder="Password"/>
+                    <div className="empty col-md-4"> 
                         </div>
 
-                        <div class="form-group">
-                                <input style={{fontSize:"18px"}} onChange = {this.typeChangeHandler} type="text" class="form-control" name="type" placeholder="Traveller"/>
+                    <div className="Form-control form user-register-main col-md-4">
+
+                        <div className="form-main ">
+
+                            <div className="user-form">
+                            
+                                <div class="input-group firstname">
+                                <span class="input-group-addon" id="basic-addon1">FirstName</span>
+                                <input onChange={this.handleFirstName} type="text" class="form-control" placeholder="First Name"/>
+                                </div>
+
+                                <div class="input-group lastname">
+                                <span class="input-group-addon" id="basic-addon1">LastName</span>
+                                <input onChange={this.handleLastName} type="text" class="form-control" placeholder="Last Name"/>
+                                </div>
+
+                                <div class="input-group username">
+                                <span class="input-group-addon" id="basic-addon1">EmailID</span>
+                                <input onChange={this.handleEmail} type="text" class="form-control" placeholder="Username"/>
+                                </div>
+
+                                <div class="input-group password">
+                                <span class="input-group-addon" id="basic-addon1">Password</span>
+                                <input onChange={this.handlePassword} type="password" class="form-control" placeholder="Password"/>
+                                </div>
+
+                                <div className="radio-parent">
+                                <input
+                                    type="radio"
+                                    onChange={this.changeHandlerRadio}
+                                    checked={this.state.role === "support"}
+                                    name="role"
+                                    value="support"
+                                />
+                                <label>IOT Support</label>
+                                </div>
+                                <div className="radio-parent">
+                                <input
+                                    type="radio"
+                                    onChange={this.changeHandlerRadio}
+                                    checked={this.state.role === "officer"}
+                                    name="role"
+                                    value="officer"
+                                />
+                                <label>City Emergency Officer</label>
+                                </div>
+                                <div className="radio-parent">
+                                <input
+                                    type="radio"
+                                    onChange={this.changeHandlerRadio}
+                                    checked={this.state.role === "admin"}
+                                    name="role"
+                                    value="admin"
+                                />
+                                <label>Infrastructure Admin</label>
+                                </div>
+
+                                <div className="submit-button">
+                                <Link to ='/login'>
+                                <button onClick={this.handleSignmeup} type="submit" class="btn btn-default button-sub">Submit</button>
+                                </Link>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                                <input style={{fontSize:"18px"}} onChange = {this.firstnameChangeHandler} type="text" class="form-control" name="firstname" placeholder="First Name"/>
-                        </div>  
-                        <button onClick = {this.submitSignup} class="btn btn-primary" style={{backgroundColor:"#ff8a00",borderColor:"#ff8a00",fontSize:"18px"}}>Sign Me Up</button>               
-                    
+                    </div>
+                    <div className="empty col-md-4"> 
                         </div>
                 </div>
-                
-            </div>
-            </div>
-        )
+            
+        );
     }
 }
+
 //export Login Component
 export default Signup;

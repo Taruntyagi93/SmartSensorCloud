@@ -44,15 +44,21 @@ class Navbar extends Component {
             navLogin = (
                 <ul class="nav navbar-nav navbar-right navbar-brand" style={{marginTop:"20px"}}>
                         <DropdownButton title={this.state.username} style={{backgroundColor:"transparent",font:"50%",color:"white",marginTop:"0px"}} >
-                            <MenuItem eventKey="1" ><Link to="/mytrips">My Infrastructure</Link></MenuItem>
+                            <MenuItem eventKey="1" ><Link to="/SensorProfile">Sensor Profile</Link></MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey="2"><Link to="/userdisplay">My Profile</Link></MenuItem>
+                            <MenuItem eventKey="2"><Link to="/SensorData">Sensor Data</Link></MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey="3" ><Link to="/account">Account</Link></MenuItem>
+                            <MenuItem eventKey="3"><Link to="/">Data Report</Link></MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey="4"><Link to="/dashboard">Administration</Link></MenuItem>
+                            <MenuItem eventKey="4" ><Link to="/mytrips">My Infrastructure</Link></MenuItem>
                             <MenuItem divider />
-                            <MenuItem eventKey="5" onClick={this.handleLogout}><Link to="/">Logout</Link></MenuItem>
+                            <MenuItem eventKey="5"><Link to="/userdisplay">My Profile</Link></MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey="6" ><Link to="/account">Account</Link></MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey="7"><Link to="/dashboard">Administration</Link></MenuItem>
+                            <MenuItem divider />
+                            <MenuItem eventKey="8" onClick={this.handleLogout}><Link to="/">Logout</Link></MenuItem>
                         </DropdownButton>
                 </ul>
             );
@@ -63,11 +69,15 @@ class Navbar extends Component {
             navLogin = (
                 <ul class="nav navbar-nav navbar-right navbar-brand" style={{marginTop:"20px"}}>
                 <DropdownButton title="Management" style={{backgroundColor:"transparent",font:"50%",color:"white",marginTop:"0px"}} >
-                    <MenuItem eventKey="1" ><Link to="/login">System Profile</Link></MenuItem>
+                    <MenuItem eventKey="1" ><Link to="/login">Login</Link></MenuItem>
                     <MenuItem divider />
-                    <MenuItem eventKey="2"><Link to="/ownerlogin">Data</Link></MenuItem>
+                    <MenuItem eventKey="2"><Link to="/signup">Sign Up</Link></MenuItem>
                     <MenuItem divider />
-                    <MenuItem eventKey="3"><Link to="/">Report</Link></MenuItem>
+                    <MenuItem eventKey="3" ><Link to="/SensorProfile">Sensor Profile</Link></MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey="4"><Link to="/SensorData">Sensor Data</Link></MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey="5"><Link to="/">Data Report</Link></MenuItem>
                 </DropdownButton>
                 </ul>
             )
@@ -76,19 +86,19 @@ class Navbar extends Component {
         help = (
             <ul class="nav navbar-nav navbar-right navbar-brand" style={{marginTop:"20px"}}>
             <DropdownButton title="Help" style={{backgroundColor:"transparent",font:"50%",color:"white",marginTop:"0px"}} >
-                <MenuItem eventKey="1" ><Link to="/help">Data Help</Link></MenuItem>
+                <MenuItem eventKey="1" ><Link to="/help">Data</Link></MenuItem>
                 <MenuItem divider />
-                <MenuItem eventKey="2"><Link to="/help">System Help</Link></MenuItem>
+                <MenuItem eventKey="2"><Link to="/help">Infrastructure</Link></MenuItem>
                 <MenuItem divider />
             </DropdownButton>
             </ul>
         )
         if(!cookie.load('cookie')){
         listyourproperty = (
-                        <button style={{backgroundColor:"#ffff",borderColor:"#ffff",fontSize:"16px"}} class="btn btn-primary button-search"><Link to="/ownerlogin">Add Sensor</Link></button>
+                        <button style={{backgroundColor:"#ffff",borderColor:"#ffff",fontSize:"16px"}} class="btn btn-primary button-search"><Link to="/">Add Sensor</Link></button>
                   )}else{
                     listyourproperty = (
-                        <button style={{backgroundColor:"#ffff",borderColor:"#ffff",fontSize:"16px"}} class="btn btn-primary button-search"><Link to="/listproperty">Update Data</Link></button>
+                        <button style={{backgroundColor:"#ffff",borderColor:"#ffff",fontSize:"16px"}} class="btn btn-primary button-search"><Link to="/SensorProfile">Update Data</Link></button>
                   )             
                   }
 

@@ -25,6 +25,8 @@ const infrastructure_model = require("./model/master");
 const infrastructure_table = infrastructure_model(sequelize, Sequelize);
 const sensor_data_model = require("./model/sensorData");
 const sensor_data_table = sensor_data_model(sequelize, Sequelize);
+const userModel = require("../db/model/userModel");
+const user_table = userModel(sequelize, Sequelize);
 
 sequelize.sync({ force: false }).then(() => {
  console.log(`Database & tables created!`);
@@ -33,5 +35,6 @@ sequelize.sync({ force: false }).then(() => {
 module.exports = {
  sequelize,
  infrastructure_table,
- sensor_data_table
+ sensor_data_table,
+ user_table
 };

@@ -1,0 +1,51 @@
+.main-class{
+    background-image: url('../Images/register.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 100vh;
+}
+
+
+.user-form{
+    border: 3px;
+    border-style: solid;
+    border-color: rgba(34, 33, 33, 0.171);
+    margin-top: 100px;
+    background: rgba(255, 255, 255, 0.5);
+}
+.side-picture{
+    margin-top: 100px;
+}
+.firstname{
+    padding: 20px;
+    width: 400px;
+    margin-left: 40px;
+}
+.lastname{
+    padding: 20px;
+    width: 400px;
+    margin-left: 40px;
+}
+.username{
+    padding: 20px;
+    width: 400px;
+    margin-left: 40px;
+}
+.password{
+    padding: 20px;
+    width: 400px;
+    margin-left: 40px;
+}
+.email{
+    padding: 20px;
+    width: 400px;
+    margin-left: 40px;
+}
+.submit-button{
+    padding: 20px;
+    margin-left: 80px;
+}
+.button-sub{
+    width: 280px;
+}

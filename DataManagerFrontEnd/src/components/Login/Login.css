@@ -1,0 +1,51 @@
+.super-login1{
+    background: url('../Images/login.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 100vh;
+}
+.login-form1{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 1000;
+    padding: 25px;
+    color: black;
+    border-bottom-color: black;
+    border: 3px;
+    border-style: solid;
+    align-content: center;
+    margin-top: 160px;
+    width: 700px;
+    margin-left: 100px;
+    background: rgba(255, 255, 255, 0.5);
+}
+.login-text1{
+    color: black;
+    padding: 20px;
+    width: 400px;
+    margin-left: 140px;
+}
+.login-email1{
+    padding: 20px;
+    width: 400px;
+    margin-left: 140px;
+}
+.login-password1{
+    padding: 20px;
+    width: 400px;
+    margin-left: 140px;
+}
+.login-submit-button1{
+    padding: 20px;
+    margin-left: 210px;
+}
+.login-button-sub1{
+    width: 200px;
+}
+.signup-text1{
+    color: rgb(39, 38, 38);
+    padding: 20px;
+    width: 400px;
+    margin-left: 140px;
+}

@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var router = require("./routes/infrastructure");
 var sensor = require("./routes/sensorData");
+var user = require("./routes/userOps");
 var app = express();
 var port = process.env.PORT || 3001; // set our port
 const db = require("./db/config");
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 // REGISTER OUR ROUTES -------------------------------
 app.use("/api", router);
 app.use("/sensor", sensor);
+app.use("/user", user);
 
 // =============================================================================
 app.listen(port);

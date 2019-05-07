@@ -75,6 +75,39 @@ router.get("/fetchCluster", (req, res) => {
     });
  });
 
+ router.get("/allfetchCluster", (req, res) => {
+  console.log("Inside get request",req.query);
+  sequelize.infrastructure_table
+    .findAll({
+      order: [["sensorId", "ASC"]],
+      attributes: [
+        "sensorId",
+        "smartNodeId",
+        "clusterId",
+        "latitude",
+        "longitude",
+        "type",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    })
+    .then(sensorInstances => {
+      console.log(sensorInstances);
+ 
+      res.json({
+        sensors: sensorInstances,
+        status: 200
+      });
+    })
+    .catch(function(err) {
+      res.json({
+        message: err.message,
+        status: 404
+      });
+    });
+ });
+
  router.get("/fetchSmartNode", (req, res) => {
   console.log("Inside get request",req.query);
   sequelize.infrastructure_table
@@ -195,6 +228,41 @@ router.post("/deleteData", (req, res, next) => {
          status: 404
        });
      });
+  });
+
+  router.post("/fetchSensors", (req, res) => {
+    console.log("Inside post request tarun", req.body);
+  
+    sequelize.infrastructure_table
+      .findAll({
+        order: [["clusterId", "ASC"]],
+        where: {
+          clusterId: req.body.clusterId
+        },
+  
+        attributes: [
+          "sensorId",
+          "clusterId",
+          "latitude",
+          "longitude",
+          "status",
+          "type"
+        ]
+      })
+      .then(sensorInstances => {
+        console.log(sensorInstances);
+  
+        res.json({
+          sensors: sensorInstances,
+          status: 200
+        });
+      })
+      .catch(function(err) {
+        res.json({
+          message: err.message,
+          status: 404
+        });
+      });
   });
 
 // router.get("/editStudentRequest/:id", function(req, res) {

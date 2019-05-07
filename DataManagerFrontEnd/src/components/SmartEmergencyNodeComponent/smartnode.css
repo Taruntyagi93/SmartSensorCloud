@@ -1,0 +1,59 @@
+.sensorbg {
+    display: block;
+    position: absolute;
+    background:rgb(175, 172, 172); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    float: right;
+    background-size: cover;
+    background-position: 40%;
+  }
+  .block-example {
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+    background-color: #eee;
+    display: inline-block;
+}
+.tablepos{
+    position: fixed;
+    width: 600px;
+    height: 200px;
+    left: 50%;
+    top: 0%;
+    margin-left: -300px;
+}
+
+.blackbox{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 1000;
+    padding-left: 20px; 
+    padding-right:20px; 
+    padding: 25px;
+    color: black;
+    border-bottom-color: black;
+    border: 5px;
+    border-style: solid;
+    align-content: center;
+    background: rgba(255, 255, 255, 0.918); 
+
+}
+.sub-class-blackbox-home{
+    padding-top: 50px;
+}
+.headerFormat{
+    font-family: sans-serif;
+    font-size: 35px;
+    font: bold; 
+    color: blue; 
+    text-align: center; 
+    padding-bottom: 5%; 
+}
+.tablePadding{
+padding-left: 19%; 
+padding-right: 19%; 
+padding-top: 7%; 
+}

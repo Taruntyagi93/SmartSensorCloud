@@ -1,0 +1,32 @@
+.super-dashboardregioniot{
+    background: url('../Images/watch-tower3.jpg')
+}
+
+.dashboardmain-heading{
+    font-family: sans-serif;
+    font-size: 60px;
+    text-align: center;
+    text-emphasis: emphassis;
+    font-weight: 900;
+    color: #fff;
+    
+    
+}
+.dashboardmain-dashboardbutton-dasboard, .dashboardmain-dashboardbutton-dasboard:hover{
+    cursor: default;
+    color: White;
+    background: rgba(0, 0, 255, 0.651);  
+}
+.dashboard-barChart{
+    padding: 40px;
+    margin-left: 100px;
+    margin-top: 80px;
+    font-family: sans-serif;
+    
+}
+.dashboard-pieChart{
+   padding: 40px;
+    width: 550px;
+    margin-top: 80px;
+    font-family: sans-serif;
+}

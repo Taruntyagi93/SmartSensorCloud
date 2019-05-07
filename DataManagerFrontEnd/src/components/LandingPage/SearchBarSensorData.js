@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../../App.css';
 import axios from 'axios';
 import ReactTable from "react-table";
-import './react-table.css'
+import 'react-table/react-table.css'
 
 import cookie from 'react-cookies';
 import {Redirect} from 'react-router';
@@ -10,11 +10,7 @@ import {Link} from 'react-router-dom';
 import { SplitButton,DropdownButton, MenuItem, Button, Image } from 'react-bootstrap';
 import Navbar from './Navbar';
 import Footbar from './Footbar';
-import { Map, GoogleApiWrapper, InfoWindow, Marker, GoogleMapReact } from 'google-maps-react';
-const mapStyles = {
-    width: '90%',
-    height: '90%'
-  };
+
 
 //create the Navbar Component
 class SearchBar extends Component {
@@ -89,23 +85,8 @@ class SearchBar extends Component {
         let queryMade=""
         //set the with credentials to true
         axios.defaults.withCredentials = true;
-        if(this.state.location.toLowerCase()=="cluster"){
-            queryMade='http://localhost:3001/api/fetchCluster'
-        }else if (this.state.location.toLowerCase()=="smartnode"){
-            queryMade='http://localhost:3001/api/fetchSmartNode'
-        }else if (this.state.location.toLowerCase()=="sensor"){
-            queryMade='http://localhost:3001/api/fetchSensor'
-        }else{
-
-            this.setState({
-                searchFlag : false,
-                message : "Sorry! No data avaliable for these" //message for empty query
-            })
-            
-        }
-        console.log(queryMade)
         //make a post request with the user data
-        axios.get(queryMade,{
+        axios.get("http://localhost:3001/sensor/fetchData",{
             params:{
                 location : this.state.location,
                 checkin : this.state.checkin, //from
@@ -132,79 +113,61 @@ class SearchBar extends Component {
             });
     }
 
-    showMapRequest = (e) => {
-        var headers = new Headers();
-        //const { description, selectedFile } = this.state;
-        let formData = new FormData();
-        //prevent page from refresh
-        e.preventDefault();
-        console.log("data",this.state.Properties)
-        if(this.state.searchFlag){
-            this.setState({
-                // latitude:this.state.Properties.sensors[0].latitude,
-                // longitude:this.state.Properties.sensors[0].longitude,
-                mapFlag:true
-            })
-        }
-        
-        }
     
-        onMarker1Click = (props, marker, e) =>
-        this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true,
-        marker1ActiveFlag: true
-        }); 
-        
 
     render(){
         //if not logged in go to login page
 
         let redirectVar = null;
-        let table = null;
-        let details=null
-        let map=null
-        let foot = <Footbar footrender={this.props.footrender}/>
         const columns = [{
             Header: 'Sensor',
             accessor: 'sensorId' // String-based value accessors!
-          }, {
-            Header: 'Smart Node',
-            accessor: 'smartNode',
+          }, 
+          {
+            Header: 'Time',
+            accessor: 'time',
            // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
           },
           {
-            Header: 'Cluster',
-            accessor: 'cluster',
+            Header: 'Data',
+            accessor: 'data',
            // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
           },
-          {
-            Header: 'Type',
-            accessor: 'type',
-           // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-          },
-          {
-            Header: 'Latitude',
-            accessor: 'latitude',
-           // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-          },
-          {
-            Header: 'Longitude',
-            accessor: 'longitude',
-           // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-           // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-          },
+        //   {
+        //     Header: 'Smart Node',
+        //     accessor: 'smartNode',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
+        //   {
+        //     Header: 'Cluster',
+        //     accessor: 'cluster',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
+        //   {
+        //     Header: 'Type',
+        //     accessor: 'type',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
+        //   {
+        //     Header: 'Latitude',
+        //     accessor: 'latitude',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
+        //   {
+        //     Header: 'Longitude',
+        //     accessor: 'longitude',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
+        //   {
+        //     Header: 'Status',
+        //     accessor: 'status',
+        //    // Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+        //   },
           ]
          let data=[] 
+         let table = null;
     
         if(this.state.searchFlag){
-
-
                 redirectVar = this.state.Properties.sensors.map(property => {
 
                     const data1 = {
@@ -214,71 +177,42 @@ class SearchBar extends Component {
                         type:property.type,
                         latitude:property.latitude,
                         longitude:property.longitude,
-                        status:property.status
+                        status:property.status,
+                        data:property.data,
+                        time:property.updatedAt
                       }
                       data.push(data1)
+
+                      
+                    //       return( 
+                    //   <div>
+                    //       <div class="row main-div-search1">
+                    //           <div class="col-sm-12">
+                    //           <div class="col-sm-6">
+                    //               <div style={{height:"60px",backgroundColor:"white",marginTop:"30px",marginBottom:"30px",marginLeft:"40px"}}>
+                    //                   <td onClick={this.propertyChangeHandler} name="displayprop" data-attr={property.sensorId} style={{fontSize:"40px",fontFamily:"Lato, Roboto !important"}}>
+                    //                   {property.sensorId}
+                    //                   </td>
+                    //               </div>
+                    //               <div class="col-sm-12" style={{height:"200px"}}>
+                    //               <div class="col-sm-3" ><div class="col-sm-12" style={{fontSize:"19px",fontWeight:"500",textAlign:"left"}}>{property.smartNodeId}</div></div>
+                    //               <div class="col-sm-3" ><div class="col-sm-12" style={{fontSize:"19px",fontWeight:"500",textAlign:"left"}}>{property.clusterId}</div></div>
+                    //               <div class="col-sm-3" ><div class="col-sm-12" style={{fontSize:"19px",fontWeight:"500",textAlign:"left"}}>{property.type}</div></div>
+                    //               </div>   
+                    //           </div>
+                    //           </div>
+                    //       </div>
+                    //   </div>
+                  
+                    //       )
                       })
 
-                    table =(
-                    <div>
-                            <ReactTable data={data} columns={columns}/> 
-                            <div class="row-sm-3">
-                            <button onClick = {this.showMapRequest} style={{backgroundColor:"#0067db",borderColor:"#0067db",fontSize:"18px"}} class="btn btn-primary button-submit">Show on Map</button>
-                            </div> 
-                        </div> 
-                    )
-                
-            } 
-
-
-            if(this.state.mapFlag){
+                      table =<ReactTable data={data} columns={columns}/> 
 
                 
-                map= (
-            
-                    <div style={{marginTop:"100px",marginLeft:"5%"}}>
-                    <Map
-                    google={this.props.google}
-                    zoom={2}
-                    style={mapStyles}
-                    initialCenter={{lat: data[0].latitude,lng: data[0].longitude}}
-                >
-                {this.state.Properties.sensors.map(marker => (
-                    <Marker
-                    position={{ lat: marker.latitude, lng: marker.longitude }}
-                    key={marker.id}
-                    />
-                ))}
-                <InfoWindow
-                    marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}
-                    onClose={this.onClose}
-                >
-                <div>
-                    <h4>{"Sensor"}</h4>
-                </div>
-                </InfoWindow>
-                </Map>
-                </div>)
-        
-                this.state.mapFlag=false
-        
-                }else{
-                    map=(
-                    <div>  
-                    <div style={{marginTop:"80px"}}>
-                    {foot}
-                    </div>
-                    </div>
-                    
-                    )
-            }
+            }   
 
-    
-            
-        
-
-        const imgurl = require(`../Images/smartReport.jpg`);
+        const imgurl = require(`../Images/site-tour-new.jpg`);
 
         return(
             <div>
@@ -287,6 +221,9 @@ class SearchBar extends Component {
             <div class="container">
                 <div class="login-form"> 
                     <div class="main-div-search" style={{backgroundColor:"transparent"}}>
+                        <div class="panel" style={{backgroundColor:"transparent",color:"black"}}>
+                            Sensor Data Management Console<br></br>
+                        </div>
                         <div class="table-col">
                             <div class="col-sm-3">
                            {/* 
@@ -311,15 +248,9 @@ class SearchBar extends Component {
                                 <input style={{height:"60px",backgroundColor:"white",fontSize:"18px"}} onChange = {this.guestsChangeHandler} type="Number" class="form-control" name="Id" placeholder="ID"/>
                             </div>
                             <div class="col-sm-3">
-                                <button onClick = {this.submitSearch} style={{backgroundColor:"#0067db",borderColor:"#0067db",fontSize:"18px"}} class="btn btn-primary button-search">Search Data</button>
+                                <button onClick = {this.submitSearch} style={{backgroundColor:"#0067db",borderColor:"#0067db",fontSize:"18px"}} class="btn btn-primary button-search">Search</button>
                             </div>
-                             
                         </div> 
-                        <div class="panel" style={{backgroundColor:"transparent",color:"white"}}>
-                            Seach Data Generate Report<br></br>
-                            Cluster Smart Node Sensors
-                        </div>
-                        
                         <div style={{backgroundColor: "red"}}>
                             <h3>{this.state.message}</h3> 
                         </div> 
@@ -330,14 +261,10 @@ class SearchBar extends Component {
             <div style={{marginTop:"10pi"}}>
             {redirectVar}
             {table}
-            {map}
             </div>
             </div>
             
         )
     }
 }
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBLF7TdB5A5hLaxAY2wZg2vg8ZSM-1PtP8'
-  })(SearchBar);
-//export default SearchBar;
+export default SearchBar;

@@ -1,7 +1,11 @@
-import React, {Component} from "react";
-import NavbarSub from './NavbarSub';
+import React, {Component} from 'react';
 import '../../App.css';
 import axios from 'axios';
+import cookie from 'react-cookies';
+import {Redirect} from 'react-router';
+import {Link} from 'react-router-dom';
+import { SplitButton,DropdownButton, MenuItem, Button, Image } from 'react-bootstrap';
+import NavbarSub from './NavbarSub';
 import './DashboardCloud.css';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
@@ -10,7 +14,10 @@ const mapStyles = {
     height: '100%'
   };
 
-class DashboardCloud extends Component{
+
+
+//create the Navbar Component
+class Dashboard extends Component {
     constructor (props){
         super(props);
         this.state = {
@@ -209,7 +216,7 @@ class DashboardCloud extends Component{
   onElCaminoClick = () =>
   this.setState({
       elCaminoFlag: true,
-      clusterId: 1,
+      clusterId: 15,
   });
 
   onSutterClick = () =>
@@ -739,8 +746,8 @@ class DashboardCloud extends Component{
                       <th>Sensor ID</th>
                       <th>Cluster ID</th>
                       <th>Type</th>
-                      <th>Latitude</th>
-                      <th>Longitude</th>
+                      <th>Location</th>
+                      <th>Company</th>
                       <th>Status</th>
                       <th>Historical Data</th>
                   </tr>
@@ -749,8 +756,8 @@ class DashboardCloud extends Component{
                     <td>{sensor.sensorId}</td>
                     <td>{sensor.clusterId}</td>
                     <td>{sensor.type}</td>
-                    <td>{sensor.latitude}</td>
-                    <td>{sensor.longitude}</td>
+                    <td>{sensor.location}</td>
+                    <td>{sensor.provider}</td>
                     <td>{sensor.status}</td>
                     <td>
                          <button onClick= {this.tempdata1} class="view-button" data-toggle="modal" data-target="#myModal"  className= "view-button">view</button>
@@ -1181,4 +1188,5 @@ class DashboardCloud extends Component{
 }
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyBLF7TdB5A5hLaxAY2wZg2vg8ZSM-1PtP8'
-  })(DashboardCloud);
+   // apiKey: 'AIzaSyBLF7TdB5A5hLaxAY2wZg2vg8ZSM-1PtP8'
+  })(Dashboard);

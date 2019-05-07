@@ -1,0 +1,51 @@
+.super-dashboardcloudiot{
+
+    background: url("../Images/watch-tower1.jpeg"); 
+    background-repeat: round ;
+}
+
+
+.dashboardsensor-dashboardbutton-sensor, .dashboardsensor-dashboardbutton-sensor:hover{
+    cursor: default;
+    color: White;
+    background: rgba(0, 0, 255, 0.651);  
+}
+.google-maps-component{
+   margin-bottom: 50px;
+    height: 700px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+.dashboardsensor-tablemain{
+    margin: 10px;
+    font-size: 15px;
+    padding: 15px;
+    font-weight: 900;
+}
+.dashboardsensor-tablemain-heading{
+    border: 2px solid;
+    background: rgba(58, 57, 57, 0.678);
+    color: #fff;
+    font-family: sans-serif;
+    
+}
+th{
+    padding: 7px;
+    border: 1px solid lightgray;
+}
+td{
+    padding: 7px;
+    align-content: left;
+    border: 1px solid lightgray;
+}
+.view-button{
+    width: 20px;
+}
+
+.dashboardsensor-table{
+    margin-top: 34px;
+}
+.dashboardsensor-tablemain-data{
+    background: rgb(255, 255, 255);
+    color: black;
+}

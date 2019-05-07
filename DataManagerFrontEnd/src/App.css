@@ -287,6 +287,140 @@ color: #fff;
   border-radius:30px;
 }
 
+/* .super-dashboardcloud{
+  background: url("../src/components/Images/watch-tower.jpg"); 
+  background-repeat: round;
+}
+
+.dashboardsensor-tablemain-active{
+  background: rgb(98, 223, 98);
+}
+.dashboardsensor-tablemain-inactive{
+  background: rgb(216, 78, 68);
+}
+
+.dashboardcloud-dashboardbutton-cloud, .dashboardcloud-dashboardbutton-cloud:hover{
+  cursor: default;
+  color: White;
+  background: rgba(0, 0, 255, 0.651);  
+  
+}
+
+.view-button{
+  width: 90px;
+  border-radius: 10px;
+}
+
+.modal-whole{
+  text-align: center;
+  margin-top: 15%;
+}
+
+.Modal-Header{
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+.dashboardcloud-table{
+  margin-top: 34px;
+}
+
+
+
+.dashboardcloud-statisticsButtonTotalNode{
+  background: rgb(37, 145, 187);
+  width  : 200px;
+  height: 120px;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: aliceblue;
+  margin-top: 30px;
+  margin-left: 120px;
+  margin-right: 105px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.more-info{
+  color: aliceblue;
+  font-size: 10px;
+}
+.dashboardcloud-text2{
+  font-size: 15px;
+}
+
+.dashboardcloud-statisticsButtonActiveNode{
+  background: rgb(34, 177, 129);
+  width  : 200px;
+  height: 120px;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: aliceblue;
+  margin-top: 30px;
+  margin-left: 105px;
+  margin-right: 105px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.more-info{
+  color: aliceblue;
+  font-size: 10px;
+}
+.dashboardcloud-text2{
+  font-size: 15px;
+}
+.dashboardcloud-statisticsButtonTotalCluster{
+  background: rgb(170, 70, 57);
+  width  : 200px;
+  height: 120px;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: aliceblue;
+  margin-top: 30px;
+  margin-left: 105px;
+  margin-right: 105px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.more-info{
+  color: aliceblue;
+  font-size: 10px;
+}
+.dashboardcloud-text2{
+  font-size: 15px;
+}
+.dashboardcloud-statisticsButtonTotalArea{
+  background: rgb(196, 193, 43);
+  width  : 200px;
+  height: 120px;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: aliceblue;
+  margin-top: 30px;
+  margin-left: 85px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.more-info{
+  color: aliceblue;
+  font-size: 10px;
+}
+.dashboardcloud-text2{
+  font-size: 15px;
+}
+.modal-viewmore{
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-left: 75%;
+}
+.backButton{
+  width: 50%;
+  margin-left: 08in;
+  padding-bottom: 20px;
+} */
+
 
 
 
