@@ -678,19 +678,23 @@ class DashboardSensorStatus extends Component{
               <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
               <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
               <tr className="dashboardsensor-tablemain-heading">
-                  <th>Sensor Name</th>
+                  <th>Sensor ID</th>
+                  <th>Cluster ID</th>
                   <th>Type</th>
-                  <th>Location</th>
-                  <th>Company</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
                   <th>Status</th>
+                  
               </tr>
               {this.state.sensors.map(sensor => (
               <tr className="dashboardsensor-tablemain-data">
                 <td>{sensor.sensorId}</td>
+                <td>{sensor.clusterId}</td>
                 <td>{sensor.type}</td>
-                <td>{sensor.location}</td>
-                <td>{sensor.provider}</td>
-                <td >{sensor.status}</td>
+                <td>{sensor.latitude}</td>
+                <td>{sensor.longitude}</td>
+                <td>{sensor.status}</td>
+                
               </tr>
               ))}
             </table> 

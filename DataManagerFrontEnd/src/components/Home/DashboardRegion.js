@@ -41,6 +41,7 @@ class DashboardRegion extends Component{
         sutterFlag: false,
         ardenFlag: false,
         costcoFlag: false,
+        modalFlag: false,
       }
     };
 
@@ -188,6 +189,32 @@ class DashboardRegion extends Component{
              });
            }
          };
+
+
+         onViewModel = (sensorId) => {
+
+          axios.get("http://localhost:3001/sensor/viewSensorData?sensorId=" + sensorId
+           ).then(response => {
+            console.log(response.data);
+            if (response.status === 200) {
+              this.setState({
+    
+                modalFlag: true,
+                
+                sensorsdata: response.data.sensors
+                //properties: response.data
+              });
+            } else {
+              this.setState({
+                authFlag: false
+              });
+            }
+          }).catch(err => {
+            console.log(err);
+          })
+      } 
+
+
     render(){
 
         let SanJoseMap = null;
@@ -986,6 +1013,41 @@ class DashboardRegion extends Component{
 
 
   
+        if(this.state.modalFlag){
+          modaldatatemp=(
+              <div id="myModal" class="modal fade modal-whole" role="dialog">
+              <div class="modal-dialog">
+
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title Modal-Header">Sensor Data</h4>
+                  </div>
+                  <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
+                      <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
+                      <tr className="dashboardsensor-tablemain-heading">
+                      <th>Sensor ID</th>
+                      <th>Data</th>
+                      </tr>
+                      {this.state.sensorsdata.map(sensor => (
+                      <tr className="dashboardsensor-tablemain-data">
+                        <td>{sensor.sensorId}</td>
+                        <td>{sensor.data}</td>
+                      </tr>
+                      ))}
+                    </table> 
+                    </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+
+              </div>
+              </div>
+          )
+      }
+
+
+  
         if (this.state.authFlag){
             console.log("inside");
                 tabledata2 = (
@@ -995,8 +1057,8 @@ class DashboardRegion extends Component{
                       <th>Sensor ID</th>
                       <th>Cluster ID</th>
                       <th>Type</th>
-                      <th>Location</th>
-                      <th>Company</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
                       <th>Status</th>
                       <th>Historical Data</th>
                   </tr>
@@ -1005,11 +1067,11 @@ class DashboardRegion extends Component{
                     <td>{sensor.sensorId}</td>
                     <td>{sensor.clusterId}</td>
                     <td>{sensor.type}</td>
-                    <td>{sensor.location}</td>
-                    <td>{sensor.provider}</td>
+                    <td>{sensor.latitude}</td>
+                    <td>{sensor.longitude}</td>
                     <td>{sensor.status}</td>
                     <td>
-                         <button onClick= {this.tempdata1} class="view-button" data-toggle="modal" data-target="#myModal"  className= "view-button">view</button>
+                      <button onClick= {(sensorId) => this.onViewModel(sensor.sensorId)}  data-toggle="modal" data-target="#myModal"  className= "view-button1">view</button>
                      </td>
                   </tr>
                   ))}
