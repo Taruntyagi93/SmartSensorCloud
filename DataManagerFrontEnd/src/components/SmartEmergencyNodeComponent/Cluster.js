@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TableContainer from "..//Table/TableContainer";
-import Switch from "react-switch";
 import axios from 'axios';
 import ReactTable from "react-table";
+import NavbarSub from '../Home/NavbarSub';
+import './Cluster.css';
 
 
 
@@ -108,46 +108,55 @@ class Cluster extends Component {
             data.push(data1)
             })
 
-          table =(
-              <div>
-                  <ReactTable data={data} columns={columns}/> 
-              </div> 
-
-          // <div class = "blackbox">
-          //   <TableContainer data={data} columns={columns} />
-          //   </div>
-          )
+            table = (
+              <div className = "dashboardsensor-tablemain" style = {{overflowX: "auto"}}>
+              <table style={{borderCollapse: "collapse", borderSpacing:0, width:"100%", border:"2px solid #ddd",padding:"5px"}}>
+              <tr className="dashboardsensor-tablemain-heading">
+                  <th>Sensor ID</th>
+                  <th>Smart Node</th>
+                  <th>Cluster ID</th>
+                  <th>Type</th>
+                  <th>Latitude</th>
+                  <th>Longitude</th>
+                  <th>Status</th>
+              </tr>
+              {this.state.Properties.sensors.map(sensor => (
+              <tr className="dashboardsensor-tablemain-data">
+                <td>{sensor.sensorId}</td>
+                <td>{sensor.smartNode}</td>
+                <td>{sensor.clusterId}</td>
+                <td>{sensor.type}</td>
+                <td>{sensor.latitude}</td>
+                <td>{sensor.longitude}</td>
+                <td>{sensor.status}</td>
+                
+              </tr>
+              ))}
+            </table> 
+            </div>
+              );
       
   }
         return(
           
-          <div>
-          <div class="sensorbg">
-          <div class  = "headerFormat">
+          <div className="clustermain col-md-12">
+            <NavbarSub/>
+          <div >
+          <div className  = "clusterheading col-md-12">
           <h>
             Smart Emergency Cluster Component
             </h>
             </div>
-          <p class="blackbox">
-            We are designing and developing the Smart Alert IoT Emergency system which will give alert to the user at the time of an emergency like natural disasters (wildfire, flooding).
-            The system will consist of IoT based smart emergency nodes that will be installed with sensors like Heat, wind, moisture.
-            The data from these smart sensor nodes will be transferred to cluster nodes, and then from these cluster nodes to the Cloud. T
-            he system will have two cloud databases, one of them will store the data related to the location of the cluster node as well as the smart node.
-            The other one will contain the data collected from the smart node
+            <div className="clusterdescription col-md-12">
+          <p>
+            This component will help the user to get the list of all the sensors
           </p>
-          <div class = "tablePadding">
-            {/* <div class = "blackbox">
-            <TableContainer data={data} columns={columns} />
-            </div> */}
-            
-           
-            
-        </div>
-        <div class="col-sm-3">
-                <button onClick = {this.submitSearch} style={{backgroundColor:"#0067db",borderColor:"#0067db",fontSize:"18px"}} class="btn btn-primary button-search">Load Data</button>
+          </div>
+        <div className="clusterloadbutton col-sm-3">
+                <button onClick = {this.submitSearch} style={{backgroundColor:"#fff",borderColor:"#fff",color:"black",fontSize:"18px"}} class="btn btn-primary button-search">Load Data</button>
         </div>
         </div>
-        <div style={{marginTop:"10pi"}}>    
+        <div className= "clustertable col-md-12" style={{marginTop:"10pi"}}>    
           {redirectVar}
             {table}
         </div>

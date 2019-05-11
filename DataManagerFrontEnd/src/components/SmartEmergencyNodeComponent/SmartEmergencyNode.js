@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TableContainer from "..//Table/TableContainer";
 import Switch from "react-switch";
+import './SmartEmergencyNode.css';
+import NavbarSub from '../Home/NavbarSub';
 
 var data = {
   "fielddata": [{
@@ -52,24 +54,23 @@ class SmartEmergencyNode extends Component {
         return(
           
 
-          <div class="sensorbg">
-          <div class  = "headerFormat">
+          <div class="SmartNodeMain col-md-12">
+          <NavbarSub/>
+          <div class  = "SmartNodeHeader col-md-12">
           <h>
             Smart Emergency Node Component
             </h>
             </div>
-          <p class="blackbox">
-            We are designing and developing the Smart Alert IoT Emergency system which will give alert to the user at the time of an emergency like natural disasters (wildfire, flooding).
-            The system will consist of IoT based smart emergency nodes that will be installed with sensors like Heat, wind, moisture.
-            The data from these smart sensor nodes will be transferred to cluster nodes, and then from these cluster nodes to the Cloud. T
-            he system will have two cloud databases, one of them will store the data related to the location of the cluster node as well as the smart node.
-            The other one will contain the data collected from the smart node
+            <div className="SmartNodedescription col-md-12">
+          <p>
+            To add Sensors, click on the Add Button and fill out the all the sensor deatils 
           </p>
-          <div class = "tablePadding">
-            <div class = "blackbox">
+          </div>
+          
+            <div class = "SmartNodeTable col-md-12">
             <TableContainer data={data} />
             </div>
-        </div>
+      
         </div>
     );
 }

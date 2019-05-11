@@ -1,0 +1,39 @@
+.clustermain{
+    background: url('../Images/dicCluster.jpg');
+    background-repeat: round ;
+    height: 150vh;
+}
+.clusterheading{
+    font-family: sans-serif;
+    font-size: 60px;
+    text-align: center;
+    text-emphasis: emphassis;
+    font-weight: 900;
+    color: #fff;
+}
+.clusterdescription{
+    font-family: sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-emphasis: emphassis;
+    font-weight: 900;
+    color: #fff;
+}
+.clusterloadbutton{
+    margin-left: 46%;
+}
+.clustertable{
+    background: rgba(255, 255, 255, 0.438);
+    margin-top: 20px;
+}
+ReactTable {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
