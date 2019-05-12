@@ -338,6 +338,6 @@ class SearchBar extends Component {
     }
 }
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBLF7TdB5A5hLaxAY2wZg2vg8ZSM-1PtP8'
+    apiKey: 'YOUR API KEY'
   })(SearchBar);
 //export default SearchBar;
