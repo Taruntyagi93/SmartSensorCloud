@@ -431,5 +431,5 @@ showMapRequest = (e) => {
 //export Home Component
 //export default Login;
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBLF7TdB5A5hLaxAY2wZg2vg8ZSM-1PtP8'
+    apiKey: 'YOUR API KEY'
   })(SensorProfile);
